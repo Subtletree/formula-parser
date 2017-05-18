@@ -21,7 +21,7 @@
 [0-9]+                                                                                          {return 'NUMBER';}
 '['([\w\,\;\s]*)?']'                                                                            {return 'ARRAY';}
 '{'([\w\,\;\"\.\s]*)?'}'                                                                        {return 'ARRAYCONSTANT';}
-"&"&(?!([a-zA-z\s\,\.]+["]))                                                                    {return '&';}
+"&"(?!([a-zA-z\s\,\.]+["]))                                                                    {return '&';}
 " "                                                                                             {return ' ';}
 [.]                                                                                             {return 'DECIMAL';}
 ":"                                                                                             {return ':';}
