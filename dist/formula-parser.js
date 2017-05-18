@@ -6462,7 +6462,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	  var result = 1;
 	  for (var i = 0; i < args.length; i++) {
-	    result = (new Decimal(result)).times(args[i]).toNumber();
+	    result *= args[i];
 	  }
 	  return result;
 	};
@@ -9447,7 +9447,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 	 * numbro.js
-	 * version : 1.10.1
+	 * version : 1.9.3
 	 * author : Företagsplatsen AB
 	 * license : MIT
 	 * http://www.foretagsplatsen.se
@@ -9461,7 +9461,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    ************************************/
 	
 	    var numbro,
-	        VERSION = '1.10.1',
+	        VERSION = '1.9.3',
 	        binarySuffixes = ['B', 'KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB'],
 	        decimalSuffixes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'],
 	        bytes = {
@@ -9522,11 +9522,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    // Numbro prototype object
 	    function Numbro(number) {
 	        this._value = number;
-	    }
-	
-	    function numberLength(number) {
-	        if (number === 0) { return 1; }
-	        return Math.floor(Math.log(Math.abs(number)) / Math.LN10) + 1;
 	    }
 	
 	    function zeroes(count) {
@@ -9924,6 +9919,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            forcedNeg = false,
 	            neg = false,
 	            indexOpenP,
+	            size,
 	            indexMinus,
 	            paren = '',
 	            minlen,
@@ -9949,7 +9945,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            prefix = '';
 	        }
 	
-	        if (format.indexOf('}') === format.length - 1 && format.length) {
+	        if (format.indexOf('}') === format.length - 1) {
 	            var start = format.indexOf('{');
 	            if (start === -1) {
 	                throw Error('Format should also contain a "{"');
@@ -10002,16 +9998,30 @@ return /******/ (function(modules) { // webpackBootstrap
 	                format = format.replace('a', '');
 	            }
 	
-	            totalLength = numberLength(value);
+	            totalLength = Math.floor(Math.log(abs) / Math.LN10) + 1;
+	
 	            minimumPrecision = totalLength % 3;
 	            minimumPrecision = minimumPrecision === 0 ? 3 : minimumPrecision;
 	
 	            if (intPrecision && abs !== 0) {
+	
+	                length = Math.floor(Math.log(abs) / Math.LN10) + 1 - intPrecision;
+	
 	                pow = 3 * ~~((Math.min(intPrecision, totalLength) - minimumPrecision) / 3);
+	
 	                abs = abs / Math.pow(10, pow);
+	
+	                if (format.indexOf('.') === -1 && intPrecision > 3) {
+	                    format += '[.]';
+	
+	                    size = length === 0 ? 0 : 3 * ~~(length / 3) - length;
+	                    size = size < 0 ? size + 3 : size;
+	
+	                    format += zeroes(size);
+	                }
 	            }
 	
-	            if (totalLength !== intPrecision) {
+	            if (Math.floor(Math.log(Math.abs(value)) / Math.LN10) + 1 !== intPrecision) {
 	                if (abs >= Math.pow(10, 12) && !abbrForce || abbrT) {
 	                    // trillion
 	                    abbr = abbr + cultures[currentCulture].abbreviations.trillion;
@@ -10029,12 +10039,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    abbr = abbr + cultures[currentCulture].abbreviations.thousand;
 	                    value = value / Math.pow(10, 3);
 	                }
-	            }
-	
-	            length = numberLength(value);
-	            if (intPrecision && length < intPrecision && format.indexOf('.') === -1) {
-	                format += '[.]';
-	                format += zeroes(intPrecision - length);
 	            }
 	        }
 	
@@ -10081,18 +10085,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	            format = format.replace('[.]', '.');
 	        }
 	
+	        w = value.toString().split('.')[0];
 	        precision = format.split('.')[1];
 	        thousands = format.indexOf(',');
 	
 	        if (precision) {
-	            var dSplit = [];
-	
 	            if (precision.indexOf('*') !== -1) {
-	                d = value.toString();
-	                dSplit = d.split('.');
-	                if (dSplit.length > 1) {
-	                    d = toFixed(value, dSplit[1].length, roundingFunction);
-	                }
+	                d = toFixed(value, value.toString().split('.')[1].length, roundingFunction);
 	            } else {
 	                if (precision.indexOf('[') > -1) {
 	                    precision = precision.replace(']', '');
@@ -10104,12 +10103,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	                }
 	            }
 	
-	            dSplit = d.split('.');
-	            w = dSplit[0];
+	            w = d.split('.')[0];
 	
-	            if (dSplit.length > 1 && dSplit[1].length) {
+	            if (d.split('.')[1].length) {
 	                var p = sep ? abbr + sep : cultures[currentCulture].delimiters.decimal;
-	                d = p + dSplit[1];
+	                d = p + d.split('.')[1];
 	            } else {
 	                d = '';
 	            }
@@ -10166,10 +10164,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	    numbro = function(input) {
 	        if (numbro.isNumbro(input)) {
 	            input = input.value();
-	        } else if (typeof input === 'string' || typeof input === 'number') {
+	        } else if (input === 0 || typeof input === 'undefined') {
+	            input = 0;
+	        } else if (!Number(input)) {
 	            input = numbro.fn.unformat(input);
-	        } else {
-	            input = NaN;
 	        }
 	
 	        return new Numbro(Number(input));
@@ -10498,7 +10496,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            (process.browser === undefined) &&
 	            process.title &&
 	            (
-	                process.title.indexOf('node') !== -1 ||
+	                process.title.indexOf('node') === 0 ||
 	                process.title.indexOf('meteor-tool') > 0 ||
 	                process.title === 'grunt' ||
 	                process.title === 'gulp'
@@ -19135,14 +19133,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  return index ? index : error.na;
 	};
 	
-	function isEqual(exp1, exp2) {
-	  if ((typeof exp1 === 'string') && (typeof exp2 === 'string')) {
-	    return exp1.toUpperCase() === exp2.toUpperCase();
-	  } else {
-	    return exp1 === exp2;
-	  }
-	}
-	
 	exports.VLOOKUP = function (needle, table, index, rangeLookup) {
 	  if (process && process.env && process.env.NODE_ENV === 'compile') {
 	    return 0;
@@ -19156,7 +19146,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  for (var i = 0; i < table.length; i++) {
 	    var row = table[i];
 	    if (!rangeLookup) {
-	      if (isEqual(row[0],needle)) {
+	      if (row[0] === needle) {
 	        return (index < (row.length + 1) ? row[index - 1] : error.ref);
 	      }
 	    } else {
@@ -19168,9 +19158,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	          return (index < (row.length + 1) ? row[index - 1] : error.ref);
 	        } else {
 	          var endRange = utils.parseNumber(table[i + 1][0]) - 1;
-	          if(needle < startRange) {
-	            return error.na;
-	          } else if (needle >= startRange && needle <= endRange) {
+	          if (needle >= startRange && needle <= endRange) {
 	            return (index < (row.length + 1) ? row[index - 1] : error.ref);
 	          }
 	        }
@@ -19188,7 +19176,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  if (process && process.env && process.env.NODE_ENV === 'compile') {
 	    return 0;
 	  }
-	
+	  
 	  if (!needle || !table || !index) {
 	    return error.na;
 	  }
@@ -19200,7 +19188,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  for (var i = 0; i < transposedTable.length; i++) {
 	    var row = transposedTable[i];
 	    if ((!rangeLookup && row[0] === needle) ||
-	      ((isEqual(row[0], needle)) ||
+	      ((row[0] === needle) ||
 	        (rangeLookup && typeof row[0] === "string" && row[0].toLowerCase().indexOf(needle.toLowerCase()) !== -1))) {
 	      return (index < (row.length + 1) ? row[index - 1] : error.ref);
 	    }
@@ -20481,7 +20469,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                        break;
 	                }
 	            },
-	            rules: [/^(?:\s+)/, /^(?:"(\\["]|[^"])*")/, /^(?:'(\\[']|[^'])*')/, /^(?:[A-Za-z]{1,}[A-Za-z_0-9\.]+(?=[(]))/, /^(?:#[A-Z0-9\/]+(!|\?)?)/, /^(?:\$[A-Za-z]+\$[0-9]+)/, /^(?:\$[A-Za-z]+[0-9]+)/, /^(?:[A-Za-z]+\$[0-9]+)/, /^(?:[A-Za-z]+[0-9]+)/, /^(?:[A-Za-z_\.\d]+(?=[!]))/, /^(?:[A-Za-z\.]+(?=[(]))/, /^(?:[A-Za-z]{1,}[A-Za-z_0-9]+)/, /^(?:[A-Za-z_]+)/, /^(?:[0-9]+)/, /^(?:\[([\w\,\;\s]*)?\])/, /^(?:\{([\w\,\;\"\.\s]*)?\})/, /^(?:&)/, /^(?: )/, /^(?:[.])/, /^(?::)/, /^(?:;)/, /^(?:,)/, /^(?:\*)/, /^(?:\/)/, /^(?:-)/, /^(?:\+)/, /^(?:\^)/, /^(?:\()/, /^(?:\))/, /^(?:>)/, /^(?:<)/, /^(?:NOT\b)/, /^(?:")/, /^(?:')/, /^(?:!)/, /^(?:=)/, /^(?:%)/, /^(?:\{)/, /^(?:\})/, /^(?:[#])/, /^(?:$)/],
+	            rules: [/^(?:\s+)/, /^(?:"(\\["]|[^"])*")/, /^(?:'(\\[']|[^'])*')/, /^(?:[A-Za-z]{1,}[A-Za-z_0-9\.]+(?=[(]))/, /^(?:#[A-Z0-9\/]+(!|\?)?)/, /^(?:\$[A-Za-z]+\$[0-9]+)/, /^(?:\$[A-Za-z]+[0-9]+)/, /^(?:[A-Za-z]+\$[0-9]+)/, /^(?:[A-Za-z]+[0-9]+)/, /^(?:[A-Za-z_\.\d]+(?=[!]))/, /^(?:[A-Za-z\.]+(?=[(]))/, /^(?:[A-Za-z]{1,}[A-Za-z_0-9]+)/, /^(?:[A-Za-z_]+)/, /^(?:[0-9]+)/, /^(?:\[([\w\,\;\s]*)?\])/, /^(?:\{([\w\,\;\"\.\s]*)?\})/, /^(?:&(?!([A-Za-z_0-9\.]+)["]))/, /^(?: )/, /^(?:[.])/, /^(?::)/, /^(?:;)/, /^(?:,)/, /^(?:\*)/, /^(?:\/)/, /^(?:-)/, /^(?:\+)/, /^(?:\^)/, /^(?:\()/, /^(?:\))/, /^(?:>)/, /^(?:<)/, /^(?:NOT\b)/, /^(?:")/, /^(?:')/, /^(?:!)/, /^(?:=)/, /^(?:%)/, /^(?:\{)/, /^(?:\})/, /^(?:[#])/, /^(?:$)/],
 	            conditions: { "INITIAL": { "rules": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40], "inclusive": true } }
 	        };
 	        return lexer;
