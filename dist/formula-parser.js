@@ -19134,7 +19134,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 	
 	exports.VLOOKUP = function (needle, table, index, rangeLookup) {
-	  console.log(needle, table, index, rangeLookup);
 	  if (process && process.env && process.env.NODE_ENV === 'compile') {
 	    return 0;
 	  }
