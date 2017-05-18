@@ -28,4 +28,9 @@ describe('.parse()', () => {
 
     expect(parser.parse('sum(2, 3, Rank.eq(2, foo))')).to.deep.equal({error: null, result: 9});
   });
+
+  it.only('should parse VLOOKUP with athrimetic or logic operator in string', () => {
+    expect(parser.parse('VLOOKUP(300,{300,"Dhiraj";400,"Vu & PT";500,"Gerud PT."},2,TRUE())')).to.deep.equal({error: null, result: 'Dhiraj'});
+    expect(parser.parse('VLOOKUP(300,{300,"Dhiraj";400,"Vu & - + ( ) \' > < = ! % \ / [] PT";500,"Gerud PT."},2,TRUE())')).to.deep.equal({error: null, result: 'Dhiraj'});
+  });
 });
