@@ -2,7 +2,7 @@
   "name": "hot-formula-parser",
   "version": "1.6.3",
   "description": "Formula parser",
-  "main": "dist/formula-parser.js",
+  "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/gulp",
     "lint": "./node_modules/.bin/gulp lint",
