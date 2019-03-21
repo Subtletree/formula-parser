@@ -52,7 +52,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -89,9 +89,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.rowIndexToLabel = _cell.rowIndexToLabel;
 	exports.rowLabelToIndex = _cell.rowLabelToIndex;
 
-/***/ },
+/***/ }),
 /* 1 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -392,9 +392,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	exports.Parser = Parser;
 
-/***/ },
+/***/ }),
 /* 2 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 	
@@ -405,9 +405,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	exports.default = SUPPORTED_FORMULAS;
 
-/***/ },
+/***/ }),
 /* 3 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	function E () {
 	  // Keep this empty so it's easier to inherit from
@@ -477,9 +477,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = E;
 
 
-/***/ },
+/***/ }),
 /* 4 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -609,9 +609,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	  });
 	}
 
-/***/ },
+/***/ }),
 /* 5 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -663,9 +663,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	func.SYMBOL = SYMBOL;
 
-/***/ },
+/***/ }),
 /* 6 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 	
@@ -702,9 +702,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	  return -1 * toNumber(number);
 	}
 
-/***/ },
+/***/ }),
 /* 7 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 	
@@ -767,9 +767,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	  return valid;
 	}
 
-/***/ },
+/***/ }),
 /* 8 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 	
@@ -785,9 +785,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	}
 
-/***/ },
+/***/ }),
 /* 9 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/*! decimal.js v7.2.4 https://github.com/MikeMcl/decimal.js/LICENCE */
 	;(function (globalScope) {
@@ -5606,9 +5606,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	})(this);
 
 
-/***/ },
+/***/ }),
 /* 10 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 	
@@ -5630,9 +5630,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	func.SYMBOL = SYMBOL;
 
-/***/ },
+/***/ }),
 /* 11 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -5696,9 +5696,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	func.SYMBOL = SYMBOL;
 
-/***/ },
+/***/ }),
 /* 12 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 	
@@ -5720,9 +5720,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	func.SYMBOL = SYMBOL;
 
-/***/ },
+/***/ }),
 /* 13 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -5792,9 +5792,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	func.isFactory = true;
 	func.SYMBOL = SYMBOL;
 
-/***/ },
+/***/ }),
 /* 14 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var categories = [
 	  __webpack_require__(15),
@@ -5819,9 +5819,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 
-/***/ },
+/***/ }),
 /* 15 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var mathTrig = __webpack_require__(16);
 	var statistical = __webpack_require__(19);
@@ -5912,9 +5912,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.ZTEST = statistical.Z.TEST;
 
 
-/***/ },
+/***/ }),
 /* 16 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var utils = __webpack_require__(17);
 	var error = __webpack_require__(18);
@@ -7067,9 +7067,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 
-/***/ },
+/***/ }),
 /* 17 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var error = __webpack_require__(18);
 	
@@ -7342,9 +7342,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 
-/***/ },
+/***/ }),
 /* 18 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	exports.nil = new Error('#NULL!');
 	exports.div0 = new Error('#DIV/0!');
@@ -7357,9 +7357,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.data = new Error('#GETTING_DATA');
 
 
-/***/ },
+/***/ }),
 /* 19 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var mathTrig = __webpack_require__(16);
 	var text = __webpack_require__(20);
@@ -9164,9 +9164,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 
-/***/ },
+/***/ }),
 /* 20 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var utils = __webpack_require__(17);
 	var error = __webpack_require__(18);
@@ -9505,9 +9505,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 
-/***/ },
+/***/ }),
 /* 21 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 	 * numbro.js
@@ -10804,15 +10804,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	}.call(typeof window === 'undefined' ? this : window));
 
 
-/***/ },
+/***/ }),
 /* 22 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	// empty (null-loader)
 
-/***/ },
+/***/ }),
 /* 23 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	(function (window, factory) {
 	    if (true) {
@@ -15513,9 +15513,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 
 
-/***/ },
+/***/ }),
 /* 24 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var utils = __webpack_require__(17);
 	var numbro = __webpack_require__(21);
@@ -15584,9 +15584,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 
-/***/ },
+/***/ }),
 /* 25 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var error = __webpack_require__(18);
 	
@@ -15723,9 +15723,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 
-/***/ },
+/***/ }),
 /* 26 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var error = __webpack_require__(18);
 	var jStat = __webpack_require__(23).jStat;
@@ -17291,9 +17291,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 
-/***/ },
+/***/ }),
 /* 27 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var M = Math;
 	function _horner(arr, v) { return arr.reduce(function(z,w){return v * z + w;},0); };
@@ -17506,9 +17506,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 
 
-/***/ },
+/***/ }),
 /* 28 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var error = __webpack_require__(18);
 	var utils = __webpack_require__(17);
@@ -18090,9 +18090,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 
-/***/ },
+/***/ }),
 /* 29 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var error = __webpack_require__(18);
 	var stats = __webpack_require__(19);
@@ -18483,9 +18483,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 
-/***/ },
+/***/ }),
 /* 30 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var error = __webpack_require__(18);
 	var utils = __webpack_require__(17);
@@ -18600,9 +18600,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 
-/***/ },
+/***/ }),
 /* 31 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var error = __webpack_require__(18);
 	var dateTime = __webpack_require__(28);
@@ -19699,9 +19699,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 
-/***/ },
+/***/ }),
 /* 32 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var error = __webpack_require__(18);
 	var utils = __webpack_require__(17);
@@ -19717,7 +19717,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	  if (arguments.length === 2) {
 	    if (lookupArray[0].length === 1) {
-	      lookupArray = lookupArray.flatten();
+	      lookupArray = lookupArray.flat();
 	    }
 	    return lookupArray[lookupRow - 1];
 	  } else {
@@ -19745,7 +19745,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return error.na;
 	  }
 	
-	  lookupArray = lookupArray.flatten();
+	  lookupArray = lookupArray.flat();
 	
 	  var index;
 	  var indexValue;
@@ -19882,9 +19882,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 
-/***/ },
+/***/ }),
 /* 33 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 	
@@ -19900,9 +19900,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	func.SYMBOL = SYMBOL;
 
-/***/ },
+/***/ }),
 /* 34 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 	
@@ -19918,9 +19918,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	func.SYMBOL = SYMBOL;
 
-/***/ },
+/***/ }),
 /* 35 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 	
@@ -19936,9 +19936,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	func.SYMBOL = SYMBOL;
 
-/***/ },
+/***/ }),
 /* 36 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 	
@@ -19954,9 +19954,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	func.SYMBOL = SYMBOL;
 
-/***/ },
+/***/ }),
 /* 37 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -20008,9 +20008,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	func.SYMBOL = SYMBOL;
 
-/***/ },
+/***/ }),
 /* 38 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -20062,9 +20062,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	func.SYMBOL = SYMBOL;
 
-/***/ },
+/***/ }),
 /* 39 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 	
@@ -20080,9 +20080,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	func.SYMBOL = SYMBOL;
 
-/***/ },
+/***/ }),
 /* 40 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -20119,9 +20119,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	func.SYMBOL = SYMBOL;
 
-/***/ },
+/***/ }),
 /* 41 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module) {"use strict";
 	
@@ -21210,9 +21210,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(42)(module)))
 
-/***/ },
+/***/ }),
 /* 42 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	module.exports = function(module) {
 		if(!module.webpackPolyfill) {
@@ -21226,21 +21226,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 
-/***/ },
+/***/ }),
 /* 43 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	module.exports = require("fs");
 
-/***/ },
+/***/ }),
 /* 44 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	module.exports = require("path");
 
-/***/ },
+/***/ }),
 /* 45 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	"use strict";
 	
@@ -21263,9 +21263,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	  return string;
 	}
 
-/***/ },
+/***/ }),
 /* 46 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 	
@@ -21401,7 +21401,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  return result;
 	}
 
-/***/ }
+/***/ })
 /******/ ])
 });
 ;
