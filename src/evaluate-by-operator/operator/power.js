@@ -5,9 +5,11 @@ import Decimal from 'decimal.js';
 export const SYMBOL = '^';
 
 export default function func(exp1, exp2) {
-  if (!Number.isInteger(toNumber(exp2))) {
-    throw Error(ERROR_VALUE);
-  }
+
+  // We want to allow integer and decimals
+  // if (!Number.isInteger(toNumber(exp2))) {
+  //   throw Error(ERROR_VALUE);
+  // }
 
   const result = (new Decimal(toNumber(exp1)).toPower(toNumber(exp2))).toNumber();
   if (isNaN(result)) {
