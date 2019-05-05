@@ -109,6 +109,7 @@ const SUPPORTED_FORMULAS = [
   'ERFC',
   'EVEN',
   'EXACT',
+  'EXP',
   'EXPON.DIST',
   'EXPONDIST',
   'F.DIST',
